@@ -7,9 +7,9 @@ namespace menu {
 
 	static Rectangle rec1;
 
-	void Init();
-	void Draw();
-	void Update();
+	void menuInit();
+	void menuDraw();
+	void menuUpdate();
 }
 
 #endif // Menu_H

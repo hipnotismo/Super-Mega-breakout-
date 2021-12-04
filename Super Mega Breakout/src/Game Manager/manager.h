@@ -13,5 +13,6 @@ namespace gameManager {
 	extern GameScreen Screens;
 
 	void manger();
+	void Init();
 }
 #endif // GameManger_H

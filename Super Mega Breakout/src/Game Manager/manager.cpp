@@ -17,6 +17,8 @@ namespace gameManager {
 
 		InitWindow(screenWidth, screenHeight, "BREAKOUT");
 
+		Init();
+
 		while (!WindowShouldClose()){
 			change();
 
@@ -28,7 +30,7 @@ namespace gameManager {
 
 		switch (Screens) {
 		case Menu:
-			menu::Update();
+			menu::menuUpdate();
 			break;
 		case Game:
 			break;
@@ -37,4 +39,8 @@ namespace gameManager {
 		}
 	}
 
+	void Init() {
+
+		menu::menuInit();
+	}
 }
