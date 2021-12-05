@@ -20,6 +20,9 @@
     <Filter Include="Structs">
       <UniqueIdentifier>{f2932818-3219-423d-bcf4-aa3a22135f92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Screens\Credits">
+      <UniqueIdentifier>{b647b529-61b8-4709-82a7-fae6dea68cfa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

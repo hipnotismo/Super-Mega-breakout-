@@ -19,7 +19,7 @@ namespace gameplay {
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
 		//init ball
-		ball.radius = 10;
+		ball.radius = 20;
 		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
 		ball.active = false;
 	}
@@ -32,7 +32,6 @@ namespace gameplay {
 				player.pos.x -= GetFrameTime() * player.speed;
 				if (ball.active == false) {
 					ball.pos.x -= GetFrameTime() * player.speed;
-					std::cout << ball.active << std::endl;
 
 				}
 			}
@@ -43,11 +42,15 @@ namespace gameplay {
 				player.pos.x += GetFrameTime() * player.speed;
 				if (ball.active == false) {
 					ball.pos.x += GetFrameTime() * player.speed;
-					std::cout << ball.active << std::endl;
-
 				}
 			}
-			
+		}
+
+		if (!ball.active) {
+			std::cout << "here" << std::endl;
+			if (IsKeyPressed(KEY_SPACE)) {
+				ball.active = !ball.active;
+			}
 		}
 	}
 
