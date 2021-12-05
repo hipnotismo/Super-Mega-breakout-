@@ -46,5 +46,8 @@
     <ClInclude Include="src\Structs\player.h">
       <Filter>Structs</Filter>
     </ClInclude>
+    <ClInclude Include="src\Structs\ball.h">
+      <Filter>Structs</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,9 +3,14 @@
 
 #include "raylib.h"
 
+#include "Structs/player.h"
+#include "Structs/ball.h"
+#include <iostream>
+
 namespace gameplay {
 
-	void gameplayInit();
 	void gameplayUpdate();
+	void gameplayInit();
+	void gameplayInput();
 }
 #endif // Gameplay_H
