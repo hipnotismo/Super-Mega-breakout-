@@ -64,6 +64,8 @@ namespace menu {
 		DrawText("MEGA", static_cast<float>(GetScreenWidth() - 400),200,50,LIME);
 		DrawText("SOKOBA", static_cast<float>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
+		DrawText("V0.5", static_cast<float>(GetScreenWidth() - 100), static_cast<float>(GetScreenHeight())-40, 20, SKYBLUE);
+
 		EndDrawing();
 
 	}

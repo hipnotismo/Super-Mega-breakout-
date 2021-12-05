@@ -35,6 +35,10 @@ namespace credits {
 		DrawRectangle(static_cast<int>(rec1.x), static_cast<int>(rec1.y), static_cast<int>(rec1.width), static_cast<int>(rec1.height), BLACK);
 		DrawText("atras", static_cast<int>(rec1.x) + 18, static_cast<int>(rec1.y) + 10, 20, WHITE);
 
+		DrawText("Made by: Martin Concetti", static_cast<float>(GetScreenWidth() /2), 200, 30, BLACK);
+		DrawText("Using raylib", static_cast<float>(GetScreenWidth() /2), 300, 30, BLACK);
+		DrawText("V0.5", static_cast<float>(GetScreenWidth() /2), 400, 30, BLACK);
+
 		EndDrawing();
 
 	}
