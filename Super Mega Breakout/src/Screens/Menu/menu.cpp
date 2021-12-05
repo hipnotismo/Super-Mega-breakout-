@@ -2,6 +2,7 @@
 
 namespace menu {
 	static void menuDraw();
+	static Vector2 mousePoint;
 
 	void menuInit() {
 
@@ -14,6 +15,18 @@ namespace menu {
 	void menuUpdate() {
 
 		menuDraw();
+
+		mousePoint = GetMousePosition();
+
+		if (CheckCollisionPointRec(mousePoint, rec1)) {
+
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+
+				gameManager::Screens = gameManager::Credits;
+
+			}
+		}
+
 	}
 
 	void menuDraw() {

@@ -4,6 +4,7 @@
 
 #include "Screens/Menu/menu.h"
 #include "Screens/Gameplay/gameplay.h"
+#include "Screens/Credits/credits.h"
 
 namespace gameManager {
 
@@ -31,10 +32,12 @@ namespace gameManager {
 
 		switch (Screens) {
 		case Menu:
-		//	menu::menuUpdate();
-			gameplay::gameplayUpdate();
+			menu::menuUpdate();
 			break;
 		case Game:
+			break;
+		case Credits:
+			credits::creditsUpdate();
 			break;
 		case End:
 			break;
@@ -45,5 +48,6 @@ namespace gameManager {
 
 		menu::menuInit();
 		gameplay::gameplayInit();
+		credits::creditsInit();
 	}
 }

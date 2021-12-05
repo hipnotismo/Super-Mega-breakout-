@@ -21,7 +21,7 @@
       <UniqueIdentifier>{f2932818-3219-423d-bcf4-aa3a22135f92}</UniqueIdentifier>
     </Filter>
     <Filter Include="Screens\Credits">
-      <UniqueIdentifier>{b647b529-61b8-4709-82a7-fae6dea68cfa}</UniqueIdentifier>
+      <UniqueIdentifier>{143a9f3e-49a7-4baf-b9b1-dbbaa5b58ae2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="src\Screens\Gameplay\gameplay.cpp">
       <Filter>Screens\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Screens\Credits\credits.cpp">
+      <Filter>Screens\Credits</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="src\Structs\ball.h">
       <Filter>Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Screens\Credits\credits.h">
+      <Filter>Screens\Credits</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
