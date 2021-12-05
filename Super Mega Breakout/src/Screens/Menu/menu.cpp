@@ -34,24 +34,35 @@ namespace menu {
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 
-				gameManager::Screens = gameManager::Credits;
+				gameManager::Screens = gameManager::Game;
 
 			}
 		}
 
+		if (CheckCollisionPointRec(mousePoint, rec2M)) {
+
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+
+				gameManager::Screens = gameManager::Credits;
+
+			}
+		}
 	}
 
 	void menuDraw() {
 		ClearBackground(RAYWHITE);
 
 		DrawRectangle(static_cast<int>(rec1M.x), static_cast<int>(rec1M.y), static_cast<int>(rec1M.width), static_cast<int>(rec1M.height), BLACK);
-		DrawRectangle(static_cast<int>(rec2M.x), static_cast<int>(rec2M.y), static_cast<int>(rec2M.width), static_cast<int>(rec2M.height), RED);
-		DrawRectangle(static_cast<int>(rec3M.x), static_cast<int>(rec3M.y), static_cast<int>(rec3M.width), static_cast<int>(rec3M.height), GREEN);
+		DrawRectangle(static_cast<int>(rec2M.x), static_cast<int>(rec2M.y), static_cast<int>(rec2M.width), static_cast<int>(rec2M.height), BLACK);
+		DrawRectangle(static_cast<int>(rec3M.x), static_cast<int>(rec3M.y), static_cast<int>(rec3M.width), static_cast<int>(rec3M.height), BLACK);
 
 		DrawText("Play", static_cast<int>(rec1M.x) + 18, static_cast<int>(rec1M.y) + 10, 20, WHITE);
 		DrawText("Credits", static_cast<int>(rec2M.x) + 18, static_cast<int>(rec2M.y) + 10, 20, WHITE);
 		DrawText("Exit", static_cast<int>(rec3M.x) + 18, static_cast<int>(rec3M.y) + 10, 20, WHITE);
 
+		DrawText("SUPER", static_cast<float>(GetScreenWidth() - 400) , 100,50,RED);
+		DrawText("MEGA", static_cast<float>(GetScreenWidth() - 400),200,50,LIME);
+		DrawText("SOKOBA", static_cast<float>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
 		EndDrawing();
 

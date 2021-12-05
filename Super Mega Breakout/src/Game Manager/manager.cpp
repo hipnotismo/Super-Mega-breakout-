@@ -35,6 +35,7 @@ namespace gameManager {
 			menu::menuUpdate();
 			break;
 		case Game:
+			gameplay::gameplayUpdate();
 			break;
 		case Credits:
 			credits::creditsUpdate();
