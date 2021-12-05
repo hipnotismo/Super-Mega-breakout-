@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "Screens/Menu/menu.h"
+#include "Screens/Gameplay/gameplay.h"
 
 namespace gameManager {
 
@@ -30,7 +31,8 @@ namespace gameManager {
 
 		switch (Screens) {
 		case Menu:
-			menu::menuUpdate();
+		//	menu::menuUpdate();
+			gameplay::gameplayUpdate();
 			break;
 		case Game:
 			break;
@@ -42,5 +44,6 @@ namespace gameManager {
 	void Init() {
 
 		menu::menuInit();
+		gameplay::gameplayInit();
 	}
 }

@@ -8,7 +8,6 @@ namespace menu {
 	static Rectangle rec1;
 
 	void menuInit();
-	void menuDraw();
 	void menuUpdate();
 }
 

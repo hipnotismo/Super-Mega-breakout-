@@ -1,6 +1,7 @@
 #include "menu.h"
 
 namespace menu {
+	static void menuDraw();
 
 	void menuInit() {
 
@@ -8,6 +9,11 @@ namespace menu {
 		rec1.y = static_cast<float>(GetScreenHeight()) / 2 - 80;
 		rec1.height = 50;
 		rec1.width = 100;
+	}
+
+	void menuUpdate() {
+
+		menuDraw();
 	}
 
 	void menuDraw() {
@@ -19,8 +25,4 @@ namespace menu {
 
 	}
 
-	void menuUpdate() {
-
-		menuDraw();
-	}
 }

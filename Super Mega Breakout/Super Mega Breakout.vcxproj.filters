@@ -14,6 +14,12 @@
     <Filter Include="Screens\Menu">
       <UniqueIdentifier>{12ab8b68-9bef-4d79-83d2-2a0c647fbebd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Screens\Gameplay">
+      <UniqueIdentifier>{36084a05-638f-4393-873c-0d8036e15063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structs">
+      <UniqueIdentifier>{f2932818-3219-423d-bcf4-aa3a22135f92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
@@ -23,6 +29,9 @@
     <ClCompile Include="src\Screens\Menu\menu.cpp">
       <Filter>Screens\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\Screens\Gameplay\gameplay.cpp">
+      <Filter>Screens\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game Manager\manager.h">
@@ -30,6 +39,12 @@
     </ClInclude>
     <ClInclude Include="src\Screens\Menu\menu.h">
       <Filter>Screens\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Screens\Gameplay\gameplay.h">
+      <Filter>Screens\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Structs\player.h">
+      <Filter>Structs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

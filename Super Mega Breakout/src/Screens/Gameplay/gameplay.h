@@ -3,10 +3,9 @@
 
 #include "raylib.h"
 
-namespace gmapelay {
+namespace gameplay {
 
 	void gameplayInit();
 	void gameplayUpdate();
-	void gamplayDraw();
 }
 #endif // Gameplay_H
