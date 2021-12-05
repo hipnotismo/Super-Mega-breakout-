@@ -47,7 +47,6 @@ namespace gameplay {
 		}
 
 		if (!ball.active) {
-			std::cout << "here" << std::endl;
 			if (IsKeyPressed(KEY_SPACE)) {
 				ball.active = !ball.active;
 			}
