@@ -14,3 +14,6 @@ namespace gameplay {
 	void gameplayInput();
 }
 #endif // Gameplay_H
+
+//	std::cout << ball.active << std::endl;
+

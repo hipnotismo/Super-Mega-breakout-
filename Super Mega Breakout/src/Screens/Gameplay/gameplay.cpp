@@ -14,23 +14,40 @@ namespace gameplay {
 	}
 
 	void gameplayInit() {
+		//init player
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
+		//init ball
 		ball.radius = 10;
 		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
-
+		ball.active = false;
 	}
 
 
 	void gameplayInput() {
 
 		if (player.pos.x > 0) {
-			if (IsKeyDown(KEY_LEFT)) player.pos.x -= GetFrameTime() * player.speed;
+			if (IsKeyDown(KEY_LEFT)) {
+				player.pos.x -= GetFrameTime() * player.speed;
+				if (ball.active == false) {
+					ball.pos.x -= GetFrameTime() * player.speed;
+					std::cout << ball.active << std::endl;
+
+				}
+			}
 		}
 
 		if (player.pos.x + player.size.x <= GetScreenWidth()) {
-			if (IsKeyDown(KEY_RIGHT)) player.pos.x += GetFrameTime() * player.speed;
+			if (IsKeyDown(KEY_RIGHT)) {
+				player.pos.x += GetFrameTime() * player.speed;
+				if (ball.active == false) {
+					ball.pos.x += GetFrameTime() * player.speed;
+					std::cout << ball.active << std::endl;
+
+				}
+			}
+			
 		}
 	}
 
