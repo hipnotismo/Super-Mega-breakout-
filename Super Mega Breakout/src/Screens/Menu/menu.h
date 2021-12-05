@@ -7,7 +7,9 @@
 
 namespace menu {
 
-	static Rectangle rec1;
+	static Rectangle rec1M;
+	static Rectangle rec2M;
+	static Rectangle rec3M;
 
 	void menuInit();
 	void menuUpdate();
