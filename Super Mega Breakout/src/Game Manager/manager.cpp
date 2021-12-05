@@ -8,8 +8,8 @@ namespace gameManager {
 
 	GameScreen Screens;
 
-	const int screenWidth = 800;
-	const int screenHeight = 450;
+	const int screenWidth = 1000;
+	const int screenHeight = 550;
 
 	static void change();
 
