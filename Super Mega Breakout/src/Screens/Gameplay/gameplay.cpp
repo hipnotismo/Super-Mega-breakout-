@@ -79,6 +79,13 @@ namespace gameplay {
 			ball.speed.y *= -1;
 		}
 		
+		//interaction with player
+		if (CheckCollisionCircleRec(ball.pos, ball.radius, { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
+			if (ball.speed.y > 0){
+				ball.speed.y *= -1;
+				ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
+			}
+		}
 	}
 
 	void gameplayDraw() {
