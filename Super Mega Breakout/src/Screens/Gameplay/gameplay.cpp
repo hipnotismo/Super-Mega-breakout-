@@ -47,18 +47,38 @@ namespace gameplay {
 			}
 		}
 
+		//ball activation
 		if (!ball.active) {
 			if (IsKeyPressed(KEY_SPACE)) {
 				ball.active = !ball.active;
-				ball.speed = { 300 , 300 };
+				ball.speed = {-100 , -300 };
 			}
 		}
 
 		if (ball.active) {
 			ball.pos.x += ball.speed.x * GetFrameTime();
-			ball.pos.y -= ball.speed.y * GetFrameTime();
-
+			ball.pos.y += ball.speed.y * GetFrameTime();
 		}
+		else {
+			ball.speed = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
+		}
+
+		//interaction with walls
+		if ((ball.pos.x - ball.radius) <= 0) {
+			ball.speed.x *= -1; 
+		}
+
+		if ((ball.pos.x + ball.radius) >= GetScreenWidth()) {
+			ball.speed.x *= -1; 
+		}
+
+		if (ball.pos.y - ball.radius <= 0) {
+			ball.speed.y *= -1;
+		}
+		if (ball.pos.y + ball.radius >= GetScreenHeight()) {
+			ball.speed.y *= -1;
+		}
+		
 	}
 
 	void gameplayDraw() {
