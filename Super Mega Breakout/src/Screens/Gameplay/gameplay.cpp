@@ -22,6 +22,7 @@ namespace gameplay {
 		ball.radius = 20;
 		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
 		ball.active = false;
+		ball.speed = {0,0};
 	}
 
 
@@ -49,7 +50,14 @@ namespace gameplay {
 		if (!ball.active) {
 			if (IsKeyPressed(KEY_SPACE)) {
 				ball.active = !ball.active;
+				ball.speed = { 300 , 300 };
 			}
+		}
+
+		if (ball.active) {
+			ball.pos.x += ball.speed.x * GetFrameTime();
+			ball.pos.y -= ball.speed.y * GetFrameTime();
+
 		}
 	}
 
