@@ -5,7 +5,7 @@ namespace gameplay {
 	static void gameplayDraw();
 	const int files = 10;
 	const int rows = 3;
-
+	bool pause = false;
 	Player player;
 	Ball ball;
 	Brick brick[rows][files];
@@ -15,6 +15,7 @@ namespace gameplay {
 		gameplayDraw();
 		gameplayInput();
 
+		if (!pause) {
 		if (ball.active) {
 			ball.pos.x += ball.speed.x * GetFrameTime();
 			ball.pos.y += ball.speed.y * GetFrameTime();
@@ -61,7 +62,7 @@ namespace gameplay {
 				}
 			}
 		}
-
+	}
 	}
 
 	void gameplayInit() {
@@ -90,6 +91,9 @@ namespace gameplay {
 
 	void gameplayInput() {
 
+		if (IsKeyPressed(KEY_P)) pause = !pause;
+
+		if(!pause) {
 		if (player.pos.x > 0) {
 			if (IsKeyDown(KEY_LEFT)) {
 				player.pos.x -= GetFrameTime() * player.speed;
@@ -113,9 +117,10 @@ namespace gameplay {
 		if (!ball.active) {
 			if (IsKeyPressed(KEY_SPACE)) {
 				ball.active = !ball.active;
-				ball.speed = {-100 , -300 };
+				ball.speed = { -100 , -300 };
 			}
 		}
+	}
 	}
 
 	void gameplayDraw() {
