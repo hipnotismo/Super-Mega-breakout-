@@ -1,5 +1,6 @@
 #include "menu.h"
-#include <iostream>
+
+#include "Game Manager/manager.h"
 
 namespace menu {
 	static void menuDraw();
@@ -33,7 +34,7 @@ namespace menu {
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 
-				gameManager::Screens = gameManager::Game;
+				gameManager::Screens = gameManager::GameScreen::Game;
 
 			}
 		}
@@ -42,7 +43,7 @@ namespace menu {
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 
-				gameManager::Screens = gameManager::Credits;
+				gameManager::Screens = gameManager::GameScreen::Credits;
 
 			}
 		}
@@ -60,11 +61,11 @@ namespace menu {
 		DrawText("Credits", static_cast<int>(rec2M.x) + 18, static_cast<int>(rec2M.y) + 10, 20, WHITE);
 		DrawText("Exit", static_cast<int>(rec3M.x) + 18, static_cast<int>(rec3M.y) + 10, 20, WHITE);
 
-		DrawText("SUPER", static_cast<float>(GetScreenWidth() - 400) , 100,50,RED);
-		DrawText("MEGA", static_cast<float>(GetScreenWidth() - 400),200,50,LIME);
-		DrawText("SOKOBA", static_cast<float>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
+		DrawText("SUPER", static_cast<int>(GetScreenWidth() - 400) , 100,50,RED);
+		DrawText("MEGA", static_cast<int>(GetScreenWidth() - 400),200,50,LIME);
+		DrawText("SOKOBA", static_cast<int>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
-		DrawText("V0.6", static_cast<float>(GetScreenWidth() - 100), static_cast<float>(GetScreenHeight())-40, 20, SKYBLUE);
+		DrawText("V0.6", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight())-40, 20, SKYBLUE);
 
 		EndDrawing();
 

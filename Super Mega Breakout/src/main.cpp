@@ -1,11 +1,8 @@
-#include "raylib.h"
-
 #include "Game Manager/manager.h"
 
 using namespace gameManager;
 
 int main() {
-
-	manger();
+	manager();
 	return 0;
 }

@@ -3,8 +3,6 @@
 
 #include "raylib.h"
 
-#include "Game Manager/manager.h"
-
 namespace menu {
 
 	static Rectangle rec1M;

@@ -1,5 +1,12 @@
 #include "gameplay.h"
 
+
+#include "raylib.h"
+
+#include "Structs/player.h"
+#include "Structs/ball.h"
+#include "Structs/brick.h"
+
 namespace gameplay {
 
 	static void gameplayDraw();
@@ -45,7 +52,7 @@ namespace gameplay {
 		}
 
 		//interaction with player
-		if (CheckCollisionCircleRec(ball.pos, ball.radius, { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
+		if (CheckCollisionCircleRec(ball.pos, static_cast<float>(ball.radius), { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
 			if (ball.speed.y > 0) {
 				ball.speed.y *= -1;
 				ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
@@ -55,7 +62,7 @@ namespace gameplay {
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < files; j++) {
 				if (brick[i][j].active) {
-					if (CheckCollisionCircleRec(ball.pos, ball.radius, { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
+					if (CheckCollisionCircleRec(ball.pos, static_cast<float>(ball.radius), { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
 						brick[i][j].active = false;
 						ball.speed.y *= -1;
 					}
@@ -67,7 +74,7 @@ namespace gameplay {
 
 	void gameplayInit() {
 		//init player
-		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
+		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 *5};
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
 		//init ball
@@ -127,16 +134,17 @@ namespace gameplay {
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
 
-		DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), BLACK);
-		DrawCircleV(ball.pos,ball.radius,RED);
-		for (int i = 0; i < rows; i++){
-			for (int j = 0; j < files; j++){
-				if (brick[i][j].active) {
-					DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+		if (!pause) {
+			DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), BLACK);
+			DrawCircleV(ball.pos, static_cast<float>(ball.radius), RED);
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < files; j++) {
+					if (brick[i][j].active) {
+						DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+					}
 				}
 			}
 		}
-		
 		EndDrawing();
 	}
 

@@ -1,13 +1,6 @@
 #ifndef Gameplay_H
 #define Gameplay_H
 
-#include "raylib.h"
-
-#include "Structs/player.h"
-#include "Structs/ball.h"
-#include "Structs/brick.h"
-#include <iostream>
-
 namespace gameplay {
 
 	void gameplayUpdate();

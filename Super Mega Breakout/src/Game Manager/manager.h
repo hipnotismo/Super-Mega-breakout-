@@ -1,11 +1,9 @@
 #ifndef GameManager_H
 #define GameManager_H
 
-#include <iostream>
-
 namespace gameManager {
 
-	enum GameScreen{
+	enum class GameScreen{
 		Menu = 0,
 		Game,
 		Credits,
@@ -14,7 +12,7 @@ namespace gameManager {
 
 	extern GameScreen Screens;
 
-	void manger();
+	void manager();
 	void Init();
 }
 #endif // GameManger_H
