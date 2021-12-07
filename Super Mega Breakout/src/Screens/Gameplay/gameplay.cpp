@@ -15,6 +15,53 @@ namespace gameplay {
 		gameplayDraw();
 		gameplayInput();
 
+		if (ball.active) {
+			ball.pos.x += ball.speed.x * GetFrameTime();
+			ball.pos.y += ball.speed.y * GetFrameTime();
+		}
+		else {
+			ball.speed = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
+		}
+
+		//interaction with walls
+		if ((ball.pos.x - ball.radius) <= 0) {
+			ball.speed.x *= -1;
+		}
+
+		if ((ball.pos.x + ball.radius) >= GetScreenWidth()) {
+			ball.speed.x *= -1;
+		}
+
+		if (ball.pos.y - ball.radius <= 0) {
+			ball.speed.y *= -1;
+		}
+
+		if (ball.pos.y + ball.radius >= GetScreenHeight()) {
+			ball.speed = { 0,0 };
+			ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
+			ball.active = !ball.active;
+
+		}
+
+		//interaction with player
+		if (CheckCollisionCircleRec(ball.pos, ball.radius, { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
+			if (ball.speed.y > 0) {
+				ball.speed.y *= -1;
+				ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
+			}
+		}
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < files; j++) {
+				if (brick[i][j].active) {
+					if (CheckCollisionCircleRec(ball.pos, ball.radius, { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
+						brick[i][j].active = false;
+						ball.speed.y *= -1;
+					}
+				}
+			}
+		}
+
 	}
 
 	void gameplayInit() {
@@ -67,53 +114,6 @@ namespace gameplay {
 			if (IsKeyPressed(KEY_SPACE)) {
 				ball.active = !ball.active;
 				ball.speed = {-100 , -300 };
-			}
-		}
-
-		if (ball.active) {
-			ball.pos.x += ball.speed.x * GetFrameTime();
-			ball.pos.y += ball.speed.y * GetFrameTime();
-		}
-		else {
-			ball.speed = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
-		}
-
-		//interaction with walls
-		if ((ball.pos.x - ball.radius) <= 0) {
-			ball.speed.x *= -1; 
-		}
-
-		if ((ball.pos.x + ball.radius) >= GetScreenWidth()) {
-			ball.speed.x *= -1; 
-		}
-
-		if (ball.pos.y - ball.radius <= 0) {
-			ball.speed.y *= -1;
-		}
-
-		if (ball.pos.y + ball.radius >= GetScreenHeight()) {
-			ball.speed = { 0,0 };
-			ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
-			ball.active = !ball.active;
-
-		}
-		
-		//interaction with player
-		if (CheckCollisionCircleRec(ball.pos, ball.radius, { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
-			if (ball.speed.y > 0){
-				ball.speed.y *= -1;
-				ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
-			}
-		}
-
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < files; j++) {
-				if(brick[i][j].active){
-					if (CheckCollisionCircleRec(ball.pos, ball.radius, { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
-						brick[i][j].active = false;
-						ball.speed.y *= -1;
-					}
-				}
 			}
 		}
 	}
