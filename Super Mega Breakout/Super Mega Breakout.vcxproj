@@ -31,6 +31,7 @@
     <ClInclude Include="src\Screens\Gameplay\gameplay.h" />
     <ClInclude Include="src\Screens\Menu\menu.h" />
     <ClInclude Include="src\Structs\ball.h" />
+    <ClInclude Include="src\Structs\brick.h" />
     <ClInclude Include="src\Structs\player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

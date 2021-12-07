@@ -58,5 +58,8 @@
     <ClInclude Include="src\Screens\Credits\credits.h">
       <Filter>Screens\Credits</Filter>
     </ClInclude>
+    <ClInclude Include="src\Structs\brick.h">
+      <Filter>Structs</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

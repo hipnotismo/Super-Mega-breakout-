@@ -33,8 +33,7 @@ namespace gameplay {
 			for (int j = 0; j < files; j++){
 				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth()/10 * (j-1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight()/10 * (i-1))};
 				brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10  };
-				
-
+				brick[i][j].active = true;
 			}
 		}
 		
@@ -102,6 +101,18 @@ namespace gameplay {
 				ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
 			}
 		}
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < files; j++) {
+				if(brick[i][j].active){
+					if (CheckCollisionCircleRec(ball.pos, ball.radius, { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
+						brick[i][j].active = false;
+						ball.speed.y *= -1;
+						std::cout << "word" << std::endl;
+					}
+				}
+			}
+		}
 	}
 
 	void gameplayDraw() {
@@ -112,7 +123,9 @@ namespace gameplay {
 		DrawCircleV(ball.pos,ball.radius,RED);
 		for (int i = 0; i < rows; i++){
 			for (int j = 0; j < files; j++){
-				DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+				if (brick[i][j].active) {
+					DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+				}
 			}
 		}
 		
