@@ -37,7 +37,7 @@ namespace credits {
 
 		DrawText("Made by: Martin Concetti", static_cast<float>(GetScreenWidth() /2), 200, 30, BLACK);
 		DrawText("Using raylib", static_cast<float>(GetScreenWidth() /2), 300, 30, BLACK);
-		DrawText("V0.5", static_cast<float>(GetScreenWidth() /2), 400, 30, BLACK);
+		DrawText("V0.6", static_cast<float>(GetScreenWidth() /2), 400, 30, BLACK);
 
 		EndDrawing();
 

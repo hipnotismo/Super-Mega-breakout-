@@ -33,9 +33,7 @@ namespace gameplay {
 			for (int j = 0; j < files; j++){
 				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth()/10 * (j-1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight()/10 * (i-1))};
 				brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10  };
-				/*std::cout << brick[i][j].pos.x;
-				std::cout << " , " ;
-				std::cout << brick[i][j].pos.y << std::endl;*/
+				
 
 			}
 		}
@@ -115,10 +113,6 @@ namespace gameplay {
 		for (int i = 0; i < rows; i++){
 			for (int j = 0; j < files; j++){
 				DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
-				std::cout << " entro";
-				std::cout << brick[i][j].size.x;
-				std::cout << " , ";
-				std::cout << brick[i][j].size.y << std::endl;
 			}
 		}
 		

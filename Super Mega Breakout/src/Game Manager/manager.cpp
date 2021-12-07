@@ -17,7 +17,7 @@ namespace gameManager {
 
 	void manger() {
 
-		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.5");
+		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.6");
 
 		Init();
 
@@ -32,8 +32,7 @@ namespace gameManager {
 
 		switch (Screens) {
 		case Menu:
-			//menu::menuUpdate();
-			gameplay::gameplayUpdate();
+			menu::menuUpdate();
 			break;
 		case Game:
 			gameplay::gameplayUpdate();

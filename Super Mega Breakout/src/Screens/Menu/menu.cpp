@@ -11,7 +11,6 @@ namespace menu {
 		rec1M.width = static_cast<float>(GetScreenWidth()) / 10;
 		rec1M.x = static_cast<float>(GetScreenWidth()) / 9 - rec1M.width;
 		rec1M.y = static_cast<float>(GetScreenHeight()) / 9 - rec1M.height;
-		std::cout << rec1M.y << std::endl;
 
 		rec2M.height = static_cast<float>(GetScreenHeight()) / 10;
 		rec2M.width = static_cast<float>(GetScreenWidth()) / 10;
@@ -65,7 +64,7 @@ namespace menu {
 		DrawText("MEGA", static_cast<float>(GetScreenWidth() - 400),200,50,LIME);
 		DrawText("SOKOBA", static_cast<float>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
-		DrawText("V0.5", static_cast<float>(GetScreenWidth() - 100), static_cast<float>(GetScreenHeight())-40, 20, SKYBLUE);
+		DrawText("V0.6", static_cast<float>(GetScreenWidth() - 100), static_cast<float>(GetScreenHeight())-40, 20, SKYBLUE);
 
 		EndDrawing();
 
