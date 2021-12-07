@@ -13,9 +13,9 @@ namespace gameplay {
 	const int files = 10;
 	const int rows = 3;
 	bool pause = false;
-	Player player;
-	Ball ball;
-	Brick brick[rows][files];
+	player::Player player;
+	ball::Ball ball;
+	brick::Brick brick[rows][files];
 
 
 	void gameplayUpdate() {
@@ -74,7 +74,7 @@ namespace gameplay {
 
 	void gameplayInit() {
 		//init player
-		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 *5};
+		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
 		//init ball
