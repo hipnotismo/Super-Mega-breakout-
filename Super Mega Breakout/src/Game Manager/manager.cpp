@@ -32,7 +32,8 @@ namespace gameManager {
 
 		switch (Screens) {
 		case Menu:
-			menu::menuUpdate();
+			//menu::menuUpdate();
+			gameplay::gameplayUpdate();
 			break;
 		case Game:
 			gameplay::gameplayUpdate();

@@ -50,6 +50,7 @@ namespace menu {
 	}
 
 	void menuDraw() {
+		BeginDrawing();
 		ClearBackground(RAYWHITE);
 
 		DrawRectangle(static_cast<int>(rec1M.x), static_cast<int>(rec1M.y), static_cast<int>(rec1M.width), static_cast<int>(rec1M.height), BLACK);

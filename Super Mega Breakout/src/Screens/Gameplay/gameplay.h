@@ -5,6 +5,7 @@
 
 #include "Structs/player.h"
 #include "Structs/ball.h"
+#include "Structs/brick.h"
 #include <iostream>
 
 namespace gameplay {

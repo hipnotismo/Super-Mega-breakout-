@@ -3,8 +3,12 @@
 namespace gameplay {
 
 	static void gameplayDraw();
+	const int files = 10;
+	const int rows = 3;
+
 	Player player;
 	Ball ball;
+	Brick brick[rows][files];
 
 
 	void gameplayUpdate() {
@@ -23,6 +27,20 @@ namespace gameplay {
 		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
 		ball.active = false;
 		ball.speed = {0,0};
+		//init bricks
+	
+		for (int i = 0; i < rows; i++){
+			for (int j = 0; j < files; j++){
+				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth()/10 * (j-1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight()/10 * (i-1))};
+				brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10  };
+				/*std::cout << brick[i][j].pos.x;
+				std::cout << " , " ;
+				std::cout << brick[i][j].pos.y << std::endl;*/
+
+			}
+		}
+		
+
 	}
 
 
@@ -89,10 +107,21 @@ namespace gameplay {
 	}
 
 	void gameplayDraw() {
+		BeginDrawing();
 		ClearBackground(RAYWHITE);
 
 		DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), BLACK);
 		DrawCircleV(ball.pos,ball.radius,RED);
+		for (int i = 0; i < rows; i++){
+			for (int j = 0; j < files; j++){
+				DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+				std::cout << " entro";
+				std::cout << brick[i][j].size.x;
+				std::cout << " , ";
+				std::cout << brick[i][j].size.y << std::endl;
+			}
+		}
+		
 		EndDrawing();
 	}
 
