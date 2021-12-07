@@ -90,8 +90,12 @@ namespace gameplay {
 		if (ball.pos.y - ball.radius <= 0) {
 			ball.speed.y *= -1;
 		}
+
 		if (ball.pos.y + ball.radius >= GetScreenHeight()) {
-			ball.speed.y *= -1;
+			ball.speed = { 0,0 };
+			ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
+			ball.active = !ball.active;
+
 		}
 		
 		//interaction with player
@@ -108,7 +112,6 @@ namespace gameplay {
 					if (CheckCollisionCircleRec(ball.pos, ball.radius, { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
 						brick[i][j].active = false;
 						ball.speed.y *= -1;
-						std::cout << "word" << std::endl;
 					}
 				}
 			}
