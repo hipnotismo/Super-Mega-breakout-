@@ -47,6 +47,15 @@ namespace menu {
 
 			}
 		}
+
+		if (CheckCollisionPointRec(mousePoint, rec3M)) {
+
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+
+				gameManager::Screens = gameManager::GameScreen::End;
+
+			}
+		}
 	}
 
 	void menuDraw() {
