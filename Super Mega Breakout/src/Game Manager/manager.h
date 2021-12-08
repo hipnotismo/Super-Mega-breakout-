@@ -12,7 +12,7 @@ namespace gameManager {
 
 	extern GameScreen Screens;
 
-	void manager();
+	void run();
 	void Init();
 }
 #endif // GameManger_H

@@ -3,6 +3,6 @@
 using namespace gameManager;
 
 int main() {
-	manager();
+	run();
 	return 0;
 }

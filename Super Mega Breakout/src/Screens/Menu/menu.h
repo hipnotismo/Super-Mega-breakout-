@@ -2,7 +2,7 @@
 #define Menu_H
 
 #include "raylib.h"
-
+ 
 namespace menu {
 
 	static Rectangle rec1M;
