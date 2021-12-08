@@ -79,7 +79,7 @@ namespace menu {
 		DrawText("MEGA", static_cast<int>(GetScreenWidth() - 400),200,50,LIME);
 		DrawText("BREAKOUT", static_cast<int>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
-		DrawText("V0.7", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight())-40, 20, SKYBLUE);
+		DrawText("V0.8", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight())-40, 20, SKYBLUE);
 
 		EndDrawing();
 

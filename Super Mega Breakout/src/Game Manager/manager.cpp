@@ -18,7 +18,7 @@ namespace gameManager {
 
 	void run() {
 
-		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.7");
+		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.8");
 
 		Init();
 
