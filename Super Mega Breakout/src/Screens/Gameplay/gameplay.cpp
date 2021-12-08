@@ -1,5 +1,6 @@
 #include "gameplay.h"
 
+#include <iostream>
 
 #include "raylib.h"
 
@@ -17,7 +18,7 @@ namespace gameplay {
 
 	static bool pause = false;
 	static bool win = false;
-	
+	static int points;
 	player::Player player;
 	ball::Ball ball;
 	brick::Brick brick[rows][files];
@@ -26,7 +27,6 @@ namespace gameplay {
 	void gameplayUpdate() {
 		gameplayDraw();
 		gameplayInput();
-
 		if (!win) {
 			if (!pause) {
 				if (ball.active) {
@@ -72,6 +72,7 @@ namespace gameplay {
 							if (CheckCollisionCircleRec(ball.pos, static_cast<float>(ball.radius), { brick[i][j].pos.x,brick[i][j].pos.y,brick[i][j].size.x,brick[i][j].size.y })) {
 								brick[i][j].active = false;
 								ball.speed.y *= -1;
+								points += 1;
 							}
 						}
 					}
@@ -80,11 +81,15 @@ namespace gameplay {
 				if (player.lifes == 0) {
 					win = !win;
 				}
+				if (points >= 30) {
+					win = !win;
+				}
 			}
 		}
 	}
 
 	void gameplayInit() {
+		points = 0;
 		//init player
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
@@ -96,7 +101,6 @@ namespace gameplay {
 		ball.active = false;
 		ball.speed = {0,0};
 		//init bricks
-	
 		for (int i = 0; i < rows; i++){
 			for (int j = 0; j < files; j++){
 				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth()/10 * (j-1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight()/10 * (i-1))};
@@ -196,11 +200,17 @@ namespace gameplay {
 			}
 		}
 		else {
-			DrawText("Game over", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 16, 40, RED);
-			DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 8, 40, SKYBLUE);
-			DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 5, 40, SKYBLUE);
+			if (points <= 30) {
+				DrawText("Game over", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 16, 40, RED);
+				DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 8, 40, SKYBLUE);
+				DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 5, 40, SKYBLUE);
+			}
+			else {
+				DrawText("You win!", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 16, 40, RED);
+				DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 8, 40, SKYBLUE);
+				DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 5, 40, SKYBLUE);
+			}
 		}
 		EndDrawing();
 	}
-
 }
