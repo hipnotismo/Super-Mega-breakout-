@@ -6,6 +6,11 @@ namespace menu {
 	static void menuDraw();
 	static Vector2 mousePoint;
 
+	static Rectangle rec1M;
+	static Rectangle rec2M;
+	static Rectangle rec3M;
+
+
 	void menuInit() {
 
 		rec1M.height = static_cast<float>(GetScreenHeight()) / 10;

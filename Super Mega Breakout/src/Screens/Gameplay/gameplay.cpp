@@ -10,9 +10,12 @@
 namespace gameplay {
 
 	static void gameplayDraw();
+
 	const int files = 10;
 	const int rows = 3;
+
 	bool pause = false;
+
 	player::Player player;
 	ball::Ball ball;
 	brick::Brick brick[rows][files];
@@ -144,6 +147,10 @@ namespace gameplay {
 					}
 				}
 			}
+		}
+		else {
+			DrawText("P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 9, 20, RED);
+
 		}
 		EndDrawing();
 	}
