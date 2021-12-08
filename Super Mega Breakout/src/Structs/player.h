@@ -8,6 +8,7 @@ namespace player {
 		Vector2 pos;
 		Vector2 size;
 		int speed;
+		int lifes;
 	};
 }
 #endif 
