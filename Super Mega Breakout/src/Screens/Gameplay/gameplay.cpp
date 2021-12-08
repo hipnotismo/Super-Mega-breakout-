@@ -76,6 +76,10 @@ namespace gameplay {
 						}
 					}
 				}
+
+				if (player.lifes == 0) {
+					win = !win;
+				}
 			}
 		}
 	}
@@ -85,7 +89,7 @@ namespace gameplay {
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
-		player.lifes = 3;
+		player.lifes = 1;
 		//init ball
 		ball.radius = 20;
 		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
@@ -147,6 +151,23 @@ namespace gameplay {
 				}
 			}
 		}
+		else {
+			//lose win screens
+			if (IsKeyPressed(KEY_ENTER)) {
+				gameManager::Screens = gameManager::GameScreen::Menu;
+				pause = false;
+				win = false;
+				gameplayInit();
+
+			}
+
+			if (IsKeyPressed(KEY_P)) {
+				pause = false;
+				win = false;
+				gameplayInit();
+			}
+
+		}
 	}
 
 	void gameplayDraw() {
@@ -173,6 +194,11 @@ namespace gameplay {
 
 
 			}
+		}
+		else {
+			DrawText("Game over", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 16, 40, RED);
+			DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 8, 40, SKYBLUE);
+			DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 5, 40, SKYBLUE);
 		}
 		EndDrawing();
 	}
