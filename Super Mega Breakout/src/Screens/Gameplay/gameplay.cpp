@@ -6,6 +6,7 @@
 #include "Structs/player.h"
 #include "Structs/ball.h"
 #include "Structs/brick.h"
+#include "Game Manager/manager.h"
 
 namespace gameplay {
 
@@ -130,7 +131,15 @@ namespace gameplay {
 				ball.speed = { -100 , -300 };
 			}
 		}
-	}
+		}
+		else {
+			if (IsKeyPressed(KEY_ENTER)) {
+				pause = false;
+				gameManager::Screens = gameManager::GameScreen::Menu;
+				gameplayInit();
+
+			}
+		}
 	}
 
 	void gameplayDraw() {
@@ -149,7 +158,9 @@ namespace gameplay {
 			}
 		}
 		else {
-			DrawText("P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 9, 20, RED);
+			DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 9, 40, RED);
+			DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 6, 40, RED);
+
 
 		}
 		EndDrawing();
