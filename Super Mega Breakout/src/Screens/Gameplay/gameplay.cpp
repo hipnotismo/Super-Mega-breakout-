@@ -20,6 +20,7 @@ namespace gameplay {
 	static bool pause = false;
 	static bool win = false;
 	static int points;
+	static int random;
 	player::Player player;
 	ball::Ball ball;
 	brick::Brick brick[rows][files];
@@ -149,8 +150,14 @@ namespace gameplay {
 				//ball activation
 				if (!ball.active) {
 					if (IsKeyPressed(KEY_SPACE)) {
+						random = GetRandomValue(0, 1);
 						ball.active = !ball.active;
-						ball.speed = { -100 , -300 };
+						if (random == 0) {
+							ball.speed = { -100 , -300 };
+						}
+						else {
+							ball.speed = { 100 , -300 };
+						}
 					}
 				}
 			}
