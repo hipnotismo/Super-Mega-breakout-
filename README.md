@@ -1,10 +1,7 @@
 # Super-Mega-breakout-
 
-<p align="center">
-<img src="Super%20Mega%20Breakout/res/Screenshots/one.png"/>
-</p>
 
-![Breakout](Breakout/res/Screenshots/one.png)
+![Breakout](Super%20Mega%20Breakout/res/Screenshots/one.png)
 
 # **`Breakout`** the classic Breakout made in Raylib.
 
