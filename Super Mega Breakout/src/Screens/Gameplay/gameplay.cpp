@@ -11,6 +11,7 @@
 
 namespace gameplay {
 
+	static void gameplayInput();
 	static void gameplayDraw();
 
 	const int files = 10;
@@ -25,6 +26,30 @@ namespace gameplay {
 
 	Sound poing;
 	Music music;
+
+	void gameplayInit() {
+		points = 0;
+		poing = LoadSound("res/Player_colition.wav");
+		music = LoadMusicStream("res/melodic-techno-03-extended-version-moogify-9867.mp3");
+		//init player
+		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
+		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x / 2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
+		player.speed = 420;
+		player.lifes = 1;
+		//init ball
+		ball.radius = 20;
+		ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
+		ball.active = false;
+		ball.speed = { 0,0 };
+		//init bricks
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < files; j++) {
+				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth() / 10 * (j - 1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight() / 10 * (i - 1)) };
+				brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10 };
+				brick[i][j].active = true;
+			}
+		}
+	}
 
 	void gameplayUpdate() {
 		gameplayDraw();
@@ -95,33 +120,6 @@ namespace gameplay {
 		}
 	}
 
-	void gameplayInit() {
-		points = 0;
-		poing = LoadSound("res/Player_colition.wav");
-		music = LoadMusicStream("res/melodic-techno-03-extended-version-moogify-9867.mp3");
-		//init player
-		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
-		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
-		player.speed = 420;
-		player.lifes = 1;
-		//init ball
-		ball.radius = 20;
-		ball.pos = {player.pos.x + (player.size.x/2),player.pos.y - ball.radius};
-		ball.active = false;
-		ball.speed = {0,0};
-		//init bricks
-		for (int i = 0; i < rows; i++){
-			for (int j = 0; j < files; j++){
-				brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth()/10 * (j-1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight()/10 * (i-1))};
-				brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10  };
-				brick[i][j].active = true;
-			}
-		}
-		
-
-	}
-
-
 	void gameplayInput() {
 
 		if (!win) {
@@ -179,7 +177,6 @@ namespace gameplay {
 				win = false;
 				gameplayInit();
 			}
-
 		}
 	}
 
@@ -198,7 +195,7 @@ namespace gameplay {
 						}
 					}
 				}
-				DrawText(TextFormat("Lifes: %4i", player.lifes),/* static_cast<int>(GetScreenWidth() / 9)*/0, static_cast<int>(GetScreenHeight() - GetScreenHeight() / 9), 40, SKYBLUE);
+				DrawText(TextFormat("Lifes: %4i", player.lifes),0, static_cast<int>(GetScreenHeight() - GetScreenHeight() / 9), 40, SKYBLUE);
 
 			}
 			else {

@@ -1,6 +1,9 @@
 #include "controls.h"
 
+#include "raylib.h"
+
 #include "Game Manager/manager.h"
+
 namespace controls {
 	static void controlsDraw();
 
@@ -8,7 +11,6 @@ namespace controls {
 	static Rectangle rec1CO;
 
 	void controlsInit() {
-
 		rec1CO.width = static_cast<float>(GetScreenWidth()) / 10;
 		rec1CO.height = static_cast<float>(GetScreenHeight()) / 10;
 		rec1CO.x = static_cast<float>(GetScreenWidth()) / 9 - rec1CO.width;
@@ -16,16 +18,12 @@ namespace controls {
 	}
 
 	void controlsUpdate() {
-
 		controlsDraw();
 		mousePoint = GetMousePosition();
 
 		if (CheckCollisionPointRec(mousePoint, rec1CO)) {
-
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-
 				gameManager::Screens = gameManager::GameScreen::Menu;
-
 			}
 		}
 	}
@@ -41,7 +39,5 @@ namespace controls {
 		DrawText("Press P for pause", static_cast<int>(GetScreenWidth() / 5), 400, 30, BLACK);
 
 		EndDrawing();
-
 	}
-
 }

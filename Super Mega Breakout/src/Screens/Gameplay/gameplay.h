@@ -2,12 +2,7 @@
 #define Gameplay_H
 
 namespace gameplay {
-
-	void gameplayUpdate();
 	void gameplayInit();
-	void gameplayInput();
+	void gameplayUpdate();
 }
 #endif // Gameplay_H
-
-//	std::cout << ball.active << std::endl;
-

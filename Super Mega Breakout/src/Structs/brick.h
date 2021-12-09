@@ -2,6 +2,7 @@
 #define Brick_H
 
 #include "raylib.h"
+
 namespace brick {
 	struct Brick {
 		Vector2 pos;

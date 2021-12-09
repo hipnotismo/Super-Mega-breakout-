@@ -13,14 +13,14 @@ namespace gameManager {
 
 	const int screenWidth = 1000;
 	const int screenHeight = 550;
-	 bool playing = true;
+	bool playing = true;
 
 	static void change();
 	static void deInit();
+	static 	void Init();
 
 	void run() {
-
-		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.9");
+		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.9.1");
 
 		Init();
 
@@ -33,7 +33,6 @@ namespace gameManager {
 	}
 
 	static void change() {
-
 		switch (Screens) {
 		case GameScreen::Menu:
 			menu::menuUpdate();
@@ -54,7 +53,6 @@ namespace gameManager {
 	}
 
 	void Init() {
-
 		menu::menuInit();
 		gameplay::gameplayInit();
 		credits::creditsInit();

@@ -2,7 +2,6 @@
 #define GameManager_H
 
 namespace gameManager {
-
 	enum class GameScreen {
 		Menu = 0,
 		Game,
@@ -14,6 +13,5 @@ namespace gameManager {
 	extern GameScreen Screens;
 
 	void run();
-	void Init();
 }
 #endif // GameManger_H

@@ -1,5 +1,7 @@
 #include "menu.h"
 
+#include "raylib.h"
+
 #include "Game Manager/manager.h"
 
 namespace menu {
@@ -11,9 +13,7 @@ namespace menu {
 	static Rectangle rec3M;
 	static Rectangle rec4M;
 
-
 	void menuInit() {
-
 		rec1M.height = static_cast<float>(GetScreenHeight()) / 10;
 		rec1M.width = static_cast<float>(GetScreenWidth()) / 10;
 		rec1M.x = static_cast<float>(GetScreenWidth()) / 9 - rec1M.width;
@@ -36,44 +36,31 @@ namespace menu {
 	}
 
 	void menuUpdate() {
-
 		menuDraw();
 
 		mousePoint = GetMousePosition();
 
 		if (CheckCollisionPointRec(mousePoint, rec1M)) {
-
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-
 				gameManager::Screens = gameManager::GameScreen::Game;
-
 			}
 		}
 
 		if (CheckCollisionPointRec(mousePoint, rec2M)) {
-
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-
 				gameManager::Screens = gameManager::GameScreen::Credits;
-
 			}
 		}
 
 		if (CheckCollisionPointRec(mousePoint, rec3M)) {
-
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-
 				gameManager::Screens = gameManager::GameScreen::Controls;
-
 			}
 		}
 
 		if (CheckCollisionPointRec(mousePoint, rec4M)) {
-
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-
 				gameManager::Screens = gameManager::GameScreen::End;
-
 			}
 		}
 	}
@@ -96,10 +83,8 @@ namespace menu {
 		DrawText("MEGA", static_cast<int>(GetScreenWidth() - 400),200,50,LIME);
 		DrawText("BREAKOUT", static_cast<int>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
-		DrawText("V0.9", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight())-40, 20, SKYBLUE);
+		DrawText("V0.9.1", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight())-40, 20, SKYBLUE);
 
 		EndDrawing();
-
 	}
-
 }
