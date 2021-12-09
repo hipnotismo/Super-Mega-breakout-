@@ -35,7 +35,7 @@ namespace gameplay {
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x / 2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
-		player.lifes = 1;
+		player.lifes = 3;
 		//init ball
 		ball.radius = 20;
 		ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
