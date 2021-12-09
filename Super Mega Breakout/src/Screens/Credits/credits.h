@@ -5,7 +5,6 @@
 
 namespace credits {
 
-	static Rectangle rec1;
 
 	void creditsInit();
 	void creditsUpdate();

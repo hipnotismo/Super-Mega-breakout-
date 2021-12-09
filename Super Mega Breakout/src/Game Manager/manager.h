@@ -3,10 +3,11 @@
 
 namespace gameManager {
 
-	enum class GameScreen{
+	enum class GameScreen {
 		Menu = 0,
 		Game,
 		Credits,
+		Controls,
 		End
 	};
 

@@ -5,7 +5,6 @@
 
 namespace controls {
 
-	static Rectangle rec1CO;
 
 	void controlsInit();
 	void controlsUpdate();

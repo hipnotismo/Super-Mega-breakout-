@@ -5,6 +5,7 @@
 #include "Screens/Menu/menu.h"
 #include "Screens/Gameplay/gameplay.h"
 #include "Screens/Credits/credits.h"
+#include "Screens/Controls/controls.h"
 
 namespace gameManager {
 
@@ -18,7 +19,7 @@ namespace gameManager {
 
 	void run() {
 
-		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.8");
+		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.8.1");
 
 		Init();
 
@@ -42,6 +43,9 @@ namespace gameManager {
 		case GameScreen::Credits:
 			credits::creditsUpdate();
 			break;
+		case GameScreen::Controls:
+			controls::controlsUpdate();
+		break; 
 		case GameScreen::End:
 			playing = false;
 			break;
@@ -53,5 +57,6 @@ namespace gameManager {
 		menu::menuInit();
 		gameplay::gameplayInit();
 		credits::creditsInit();
+		controls::controlsInit();
 	}
 }
