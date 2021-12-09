@@ -1,6 +1,6 @@
 # Super-Mega-breakout-
 
-![Breakout](sfml-test/res/Screenshots/one.png)
+![Breakout](Breakout/res/Screenshots/one.png)
 
 # **`Breakout`** the classic Breakout made in Raylib.
 
@@ -13,7 +13,7 @@
 # `introduction`
  One of the great clasics recreated in raylib and c++, please have a good time.
  
- ![Breakout](sfml-test/res/Screenshots/two.png)
+ ![Breakout](Breakout/res/Screenshots/two.png)
  
  # `instructions`
 >Use teh mouse to intect in the menus
@@ -22,3 +22,5 @@
 >Dont let the ball tocuh the lower end of the screen.
 >Destroy all the black bricks to win.
 >If you run out of lifes you lose, bot dont worri you can always play again.
+
+ ![Breakout](Breakout/res/Screenshots/three.png)
