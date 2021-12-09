@@ -23,10 +23,14 @@ namespace gameplay {
 	ball::Ball ball;
 	brick::Brick brick[rows][files];
 
+	Sound poing;
+	Music music;
 
 	void gameplayUpdate() {
 		gameplayDraw();
 		gameplayInput();
+		PlayMusicStream(music);
+		UpdateMusicStream(music);
 		if (!win) {
 			if (!pause) {
 				if (ball.active) {
@@ -63,6 +67,9 @@ namespace gameplay {
 					if (ball.speed.y > 0) {
 						ball.speed.y *= -1;
 						ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
+						if (ball.active==true){						
+							PlaySound(poing);
+						}
 					}
 				}
 
@@ -90,6 +97,8 @@ namespace gameplay {
 
 	void gameplayInit() {
 		points = 0;
+		poing = LoadSound("res/Player_colition.wav");
+		music = LoadMusicStream("res/melodic-techno-03-extended-version-moogify-9867.mp3");
 		//init player
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x/2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };

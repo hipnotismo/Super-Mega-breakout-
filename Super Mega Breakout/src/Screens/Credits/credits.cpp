@@ -38,7 +38,8 @@ namespace credits {
 
 		DrawText("Made by: Martin Concetti", static_cast<int>(GetScreenWidth() /2), 200, 30, BLACK);
 		DrawText("Using raylib", static_cast<int>(GetScreenWidth() /2), 300, 30, BLACK);
-		DrawText("V0.8.1", static_cast<int>(GetScreenWidth() /2), 400, 30, BLACK);
+		DrawText("V0.9", static_cast<int>(GetScreenWidth() /2), 400, 30, BLACK);
+		DrawText("Sound effects made in sfxr, music from pixabay", 5, 500, 30, BLACK);
 
 		EndDrawing();
 

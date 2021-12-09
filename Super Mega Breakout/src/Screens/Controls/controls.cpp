@@ -36,9 +36,9 @@ namespace controls {
 		DrawRectangle(static_cast<int>(rec1CO.x), static_cast<int>(rec1CO.y), static_cast<int>(rec1CO.width), static_cast<int>(rec1CO.height), BLACK);
 		DrawText("atras", static_cast<int>(rec1CO.x) + 18, static_cast<int>(rec1CO.y) + 10, 20, WHITE);
 
-		DrawText("Move the player with the left and right arrows", static_cast<int>(GetScreenWidth() / 2), 200, 30, BLACK);
-		DrawText("Press espace to lunch the ball", static_cast<int>(GetScreenWidth() / 2), 300, 30, BLACK);
-		DrawText("Press P for pause", static_cast<int>(GetScreenWidth() / 2), 400, 30, BLACK);
+		DrawText("Move the player with the left and right arrows", static_cast<int>(GetScreenWidth() / 5), 200, 30, BLACK);
+		DrawText("Press espace to lunch the ball", static_cast<int>(GetScreenWidth() / 5), 300, 30, BLACK);
+		DrawText("Press P for pause", static_cast<int>(GetScreenWidth() / 5), 400, 30, BLACK);
 
 		EndDrawing();
 

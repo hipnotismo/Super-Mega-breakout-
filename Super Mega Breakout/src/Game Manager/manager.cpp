@@ -16,10 +16,11 @@ namespace gameManager {
 	 bool playing = true;
 
 	static void change();
+	static void deInit();
 
 	void run() {
 
-		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.8.1");
+		InitWindow(screenWidth, screenHeight, "BREAKOUT V0.9");
 
 		Init();
 
@@ -27,7 +28,7 @@ namespace gameManager {
 			change();
 
 		}
-
+		deInit();
 		CloseWindow();
 	}
 
@@ -58,5 +59,10 @@ namespace gameManager {
 		gameplay::gameplayInit();
 		credits::creditsInit();
 		controls::controlsInit();
+		InitAudioDevice();
+	}
+
+	void deInit() {
+		CloseAudioDevice();
 	}
 }
