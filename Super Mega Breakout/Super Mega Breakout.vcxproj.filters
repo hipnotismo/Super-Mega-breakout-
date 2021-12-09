@@ -23,6 +23,9 @@
     <Filter Include="Screens\Credits">
       <UniqueIdentifier>{143a9f3e-49a7-4baf-b9b1-dbbaa5b58ae2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Screens\Controls">
+      <UniqueIdentifier>{81e0a27d-7a8a-43a2-8dd0-3a1f29a01bb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
@@ -37,6 +40,9 @@
     </ClCompile>
     <ClCompile Include="src\Screens\Credits\credits.cpp">
       <Filter>Screens\Credits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Screens\Controls\controls.cpp">
+      <Filter>Screens\Controls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +66,9 @@
     </ClInclude>
     <ClInclude Include="src\Structs\brick.h">
       <Filter>Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Screens\Controls\controls.h">
+      <Filter>Screens\Controls</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
