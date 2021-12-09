@@ -14,7 +14,7 @@
 # `introduction`
  One of the great clasics recreated in raylib and c++, please have a good time.
  
- ![Breakout](Breakout/res/Screenshots/two.png)
+ ![Breakout](Super%20Mega%20Breakout/res/Screenshots/one.png)
  
  # `instructions`
 >Use teh mouse to intect in the menus
@@ -24,4 +24,4 @@
 >Destroy all the black bricks to win.
 >If you run out of lifes you lose, bot dont worri you can always play again.
 
- ![Breakout](Breakout/res/Screenshots/three.png)
+ ![Breakout](Super%20Mega%20Breakout/res/Screenshots/one.png)
