@@ -35,7 +35,7 @@ namespace gameplay {
 		player.size = { static_cast<float>(GetScreenWidth()) / 6,static_cast<float>(GetScreenHeight()) / 15 };
 		player.pos = { static_cast<float>(GetScreenWidth()) / 2 - player.size.x / 2,static_cast<float>(GetScreenHeight()) - player.size.y - 10 };
 		player.speed = 420;
-		player.lifes = 3;
+		player.lifes = 5;
 		//init ball
 		ball.radius = 20;
 		ball.pos = { player.pos.x + (player.size.x / 2),player.pos.y - ball.radius };
@@ -91,7 +91,8 @@ namespace gameplay {
 				if (CheckCollisionCircleRec(ball.pos, static_cast<float>(ball.radius), { player.pos.x, player.pos.y,player.size.x, player.size.y })) {
 					if (ball.speed.y > 0) {
 						ball.speed.y *= -1;
-						ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 5;
+						ball.speed.x = (ball.pos.x - player.pos.x) / (player.size.x / 2) * 500;
+						std::cout << ball.speed.x << std::endl;
 						if (ball.active==true){						
 							PlaySound(poing);
 						}
@@ -206,7 +207,7 @@ namespace gameplay {
 			}
 		}
 		else {
-			if (points <= 30) {
+			if (points < 30) {
 				DrawText("Game over", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 16, 40, RED);
 				DrawText("Press P to play again", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 8, 40, SKYBLUE);
 				DrawText("Press enter to go to menu", static_cast<int>(GetScreenWidth()) / 9, static_cast<int>(GetScreenHeight()) / 5, 40, SKYBLUE);
