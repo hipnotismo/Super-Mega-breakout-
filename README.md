@@ -1,7 +1,7 @@
 # Super-Mega-breakout-
 
 <p align="center">
-<img src="Super-Mega-Breakout/res/Screenshots/one.png"/>
+<img src="Super%20Mega%20Breakout/res/Screenshots/one.png"/>
 </p>
 
 ![Breakout](Breakout/res/Screenshots/one.png)
