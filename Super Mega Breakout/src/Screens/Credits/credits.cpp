@@ -38,7 +38,7 @@ namespace breakout {
 			DrawText("Made by: Martin Concetti", static_cast<int>(GetScreenWidth() / 4), 0, 30, SKYBLUE);
 			DrawText("Player ball collision from raylib example, bricks from Matias Karplus", static_cast<int>(GetScreenWidth() / 4), static_cast<int>(GetScreenHeight()) / 19, 20, SKYBLUE);
 			DrawText("Using raylib", static_cast<int>(GetScreenWidth() / 4), static_cast<int>(GetScreenHeight()) / 10, 30, SKYBLUE);
-			DrawText("V0.10", static_cast<int>(GetScreenWidth() / 2), static_cast<int>(GetScreenHeight()) / 7, 30, SKYBLUE);
+			DrawText("V1.0", static_cast<int>(GetScreenWidth() / 2), static_cast<int>(GetScreenHeight()) / 7, 30, SKYBLUE);
 			DrawText("Collision  sound effect by Martin Concetti in bfxr", 5, static_cast<int>(GetScreenHeight()) / 4, 30, BLACK);
 			DrawText("melodic-techno-03-extended-version-moogify-9867.mp3", 5, static_cast<int>(GetScreenHeight()) / 3, 30, BLACK);
 			DrawText("created by Zen Man, more info in the resource folder!", 5, static_cast<int>(GetScreenHeight()) / 2, 30, BLACK);

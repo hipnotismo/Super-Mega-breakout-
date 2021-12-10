@@ -21,7 +21,7 @@ namespace breakout {
 		static 	void Init();
 
 		void run() {
-			InitWindow(screenWidth, screenHeight, "BREAKOUT V0.10");
+			InitWindow(screenWidth, screenHeight, "BREAKOUT V1.0");
 
 			Init();
 

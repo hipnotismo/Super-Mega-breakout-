@@ -84,7 +84,7 @@ namespace breakout {
 			DrawText("MEGA", static_cast<int>(GetScreenWidth() - 400), 200, 50, LIME);
 			DrawText("BREAKOUT", static_cast<int>(GetScreenWidth() - 400), 300, 50, SKYBLUE);
 
-			DrawText("V0.10", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight()) - 40, 20, SKYBLUE);
+			DrawText("V1.0", static_cast<int>(GetScreenWidth() - 100), static_cast<int>(GetScreenHeight()) - 40, 20, SKYBLUE);
 			DrawText("Use the mouse to move and interact!", 5, static_cast<int>(GetScreenHeight()) - 40, 30, RED);
 
 			EndDrawing();
