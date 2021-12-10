@@ -1,17 +1,19 @@
 #ifndef GameManager_H
 #define GameManager_H
 
-namespace gameManager {
-	enum class GameScreen {
-		Menu = 0,
-		Game,
-		Credits,
-		Controls,
-		End
-	};
+namespace breakout {
+	namespace gameManager {
+		enum class GameScreen {
+			Menu = 0,
+			Game,
+			Credits,
+			Controls,
+			End
+		};
 
-	extern GameScreen Screens;
+		extern GameScreen Screens;
 
-	void run();
+		void run();
+	}
 }
 #endif // GameManger_H

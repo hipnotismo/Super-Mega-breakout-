@@ -3,12 +3,14 @@
 
 #include "raylib.h"
 
-namespace player {
-	struct Player {
-		Vector2 pos;
-		Vector2 size;
-		int speed;
-		int lifes;
-	};
+namespace breakout {
+	namespace player {
+		struct Player {
+			Vector2 pos;
+			Vector2 size;
+			int speed;
+			int lifes;
+		};
+	}
 }
 #endif 
