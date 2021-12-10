@@ -44,6 +44,7 @@ namespace breakout {
 			//init bricks
 			for (int i = 0; i < rows; i++) {
 				for (int j = 0; j < files; j++) {
+					brick[i][j].color = GetRandomValue(0, 4);
 					brick[i][j].pos = { static_cast<float>(GetScreenWidth()) / 10 + (GetScreenWidth() / 10 * (j - 1)),static_cast<float>(GetScreenHeight()) / 10 + (GetScreenHeight() / 10 * (i - 1)) };
 					brick[i][j].size = { static_cast<float>(GetScreenWidth()) / 10 ,static_cast<float>(GetScreenHeight()) / 10 };
 					brick[i][j].active = true;
@@ -197,7 +198,23 @@ namespace breakout {
 					for (int i = 0; i < rows; i++) {
 						for (int j = 0; j < files; j++) {
 							if (brick[i][j].active) {
-								DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+								switch (brick[i][j].color) {
+								case 0:
+									DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BLACK);
+									break;
+								case 1:
+									DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), MAGENTA);
+									break;
+								case 2:
+									DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), LIME);
+									break;
+								case 3:
+									DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), GOLD);
+									break;
+								case 4:
+									DrawRectangle(static_cast<int>(brick[i][j].pos.x), static_cast<int>(brick[i][j].pos.y), static_cast<int>(brick[i][j].size.x), static_cast<int>(brick[i][j].size.y), BROWN);
+									break;
+								}
 							}
 						}
 					}

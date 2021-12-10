@@ -9,6 +9,7 @@ namespace breakout {
 			Vector2 pos;
 			Vector2 size;
 			bool active;
+			int color;
 		};
 	}
 }
